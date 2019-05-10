@@ -3,7 +3,7 @@
 use warnings;
 use strict;
 use Test::More tests => 23;
-use Test::Exception;
+use Test::Fatal;
 use_ok('Data::Page');
 
 my $page = Data::Page->new(7, 10, 12);
@@ -16,9 +16,9 @@ isa_ok($page, 'Data::Page');
 
 is($page->first_page, 1, "Adjusted to first possible page");
 
-throws_ok {
+like exception {
   my $page = Data::Page->new(12, -1, 1);
-  }
+  },
   qr/one entry per page/, "Can't have entries-per-page less than 1";
 
 # The new empty constructor means we might be empty, let's check for sensible defaults

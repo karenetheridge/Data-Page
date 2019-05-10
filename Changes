@@ -1,6 +1,7 @@
 Revision history for Perl module Data::Page:
 
 {{$NEXT}}
+    - switch from Test::Exception to Test::Fatal
 
 2.03      2019-05-10 03:06:05Z
     - updated distribution tooling
