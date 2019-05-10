@@ -4,8 +4,7 @@ use strict;
 use base 'Class::Accessor::Chained::Fast';
 __PACKAGE__->mk_accessors(qw(total_entries entries_per_page current_page));
 
-use vars qw($VERSION);
-$VERSION = '2.03';
+our $VERSION = '2.03';
 
 sub new {
     my $class = shift;

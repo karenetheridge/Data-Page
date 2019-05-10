@@ -1,0 +1,6 @@
+/.ackrc
+/.build/
+!/.gitignore
+/.latest
+/Data-Page-*/
+/Data-Page-*.tar.gz

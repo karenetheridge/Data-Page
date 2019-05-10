@@ -1,5 +1,8 @@
 Revision history for Perl module Data::Page:
 
+{{$NEXT}}
+    - updated distribution tooling
+
 2.02      2009-12-07 19:45:33Z
     - fix SQL documentation, spotted by Terrence Brannon
     - added change_entries_per_page, patch by James Laver (ELPENGUIN)
