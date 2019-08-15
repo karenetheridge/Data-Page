@@ -151,7 +151,7 @@ __END__
 
 =head1 NAME
 
-Data::Page - help when paging through sets of results
+Data::Page - Help when paging through sets of results
 
 =head1 SYNOPSIS
 
