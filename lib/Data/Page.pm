@@ -38,14 +38,13 @@ sub current_page {
         my $cp = $_[0];
         Carp::croak('current_page must be an integer')
             if !defined($cp) or ref($cp) or int($cp) != $cp;
+        my $fp = $self->first_page;
+        return $self->_current_page_accessor($fp) if $cp < $fp;
+        my $lp = $self->last_page;
+        return $self->_current_page_accessor($lp) if $cp > $lp;
         return $self->_current_page_accessor(@_);
     }
-    my $cp = $self->_current_page_accessor;
-    my $fp = $self->first_page;
-    return $fp if !defined $cp or $cp < $fp;
-    my $lp = $self->last_page;
-    return $lp if $cp > $lp;
-    return $cp;
+    return $self->_current_page_accessor;
 }
 
 sub total_entries {
