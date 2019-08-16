@@ -35,6 +35,7 @@ before_install:
   - build-dist
   - cd $BUILD_DIR
 install:
+  - cpan-install Sub::Name Class::Accessor::Fast::XS
   - cpan-install --deps
 script:
   - perl Makefile.PL
