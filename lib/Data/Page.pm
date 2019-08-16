@@ -2,6 +2,7 @@ package Data::Page;
 # ABSTRACT: Help when paging through sets of results
 use Carp ();
 use strict;
+use warnings;
 use base 'Class::Accessor::Chained::Fast';
 __PACKAGE__->mk_accessors(qw(total_entries entries_per_page current_page));
 

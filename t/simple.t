@@ -1,6 +1,6 @@
-#!/usr/bin/perl -wT
-
 use strict;
+use warnings;
+
 use Test::More tests => 843;
 use_ok('Data::Page');
 
