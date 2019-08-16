@@ -1,8 +1,14 @@
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
-Data::Page - help when paging through sets of results
+Data::Page - Help when paging through sets of results
+
+=head1 VERSION
+
+version 2.04
 
 =head1 SYNOPSIS
 
@@ -70,6 +76,9 @@ This method gets or sets the current page number (which defaults to 1):
 
   print "Page: ", $page->current_page, "\n";
 
+The page number cannot be set to less than 1 or later than the last page:
+if such a value is passed, it is clamped to [1, num_pages].
+
 =head2 entries_on_this_page
 
 This methods returns the number of entries on the current page:
@@ -128,8 +137,8 @@ on the current page:
 
 =head2 skipped
 
-This method is useful paging through data in a database using SQL
-LIMIT clauses. It is simply $page->first - 1:
+This method is useful for paging through data in a database using SQL
+LIMIT clauses. It is simply C<< $page->first - 1 >>:
 
   $sth = $dbh->prepare(
     q{SELECT * FROM table ORDER BY rec_date LIMIT ?, ?}
@@ -139,7 +148,7 @@ LIMIT clauses. It is simply $page->first - 1:
 =head2 change_entries_per_page
 
 This method changes the number of entries per page and the current page number
-such that the L<first> item on the current page will be present on the new page.
+such that the L</first> item on the current page will be present on the new page.
 
  $page->total_entries(50);
  $page->entries_per_page(20);
@@ -160,6 +169,11 @@ more time getting the rest of their code right...
 Related modules which may be of interest: L<Data::Pageset>,
 L<Data::Page::Tied>, L<Data::SpreadPagination>.
 
+=head1 SUPPORT
+
+Bugs may be submitted through L<the RT bug tracker|https://rt.cpan.org/Public/Dist/Display.html?Name=Data-Page>
+(or L<bug-Data-Page@rt.cpan.org|mailto:bug-Data-Page@rt.cpan.org>).
+
 =head1 AUTHOR
 
 Based on code originally by Leo Lapworth, with many changes added by
@@ -167,15 +181,25 @@ by Leon Brocard <acme@astray.com>.
 
 =head1 CONTRIBUTORS
 
-James Laver (ELPENGUIN)
+=for stopwords Karen Etheridge James Laver
 
-=head1 COPYRIGHT
+=over 4
 
-Copyright (C) 2000-9, Leon Brocard
+=item *
 
-=head1 LICENSE
+Karen Etheridge <ether@cpan.org>
 
-This module is free software; you can redistribute it or modify it
-under the same terms as Perl itself.
+=item *
+
+James Laver <elpenguin@cpan.org>
+
+=back
+
+=head1 COPYRIGHT AND LICENCE
+
+This software is copyright (c) 2000 by Léon Brocard.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
