@@ -1,6 +1,6 @@
 package Data::Page;
 # ABSTRACT: Help when paging through sets of results
-use Carp;
+use Carp ();
 use strict;
 use base 'Class::Accessor::Chained::Fast';
 __PACKAGE__->mk_accessors(qw(total_entries entries_per_page current_page));
@@ -23,7 +23,7 @@ sub entries_per_page {
     my $self             = shift;
     my $entries_per_page = $_[0];
     if (@_) {
-        croak("Fewer than one entry per page!") if $entries_per_page < 1;
+        Carp::croak("Fewer than one entry per page!") if $entries_per_page < 1;
         return $self->_entries_per_page_accessor(@_);
     }
     return $self->_entries_per_page_accessor();
@@ -140,7 +140,7 @@ sub change_entries_per_page {
     my ( $self, $new_epp ) = @_;
 
     use integer;
-    croak("Fewer than one entry per page!") if $new_epp < 1;
+    Carp::croak("Fewer than one entry per page!") if $new_epp < 1;
     my $new_page = 1 + ( $self->first / $new_epp );
     $self->entries_per_page($new_epp);
     $self->current_page($new_page);
