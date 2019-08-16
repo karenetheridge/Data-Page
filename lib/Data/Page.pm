@@ -219,6 +219,9 @@ This method gets or sets the current page number (which defaults to 1):
 
   print "Page: ", $page->current_page, "\n";
 
+The page number cannot be set to less than 1 or later than the last page:
+if such a value is passed, it is clamped to [1, num_pages].
+
 =head2 entries_on_this_page
 
 This methods returns the number of entries on the current page:

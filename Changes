@@ -2,6 +2,7 @@ Revision history for Perl module Data::Page:
 
 {{$NEXT}}
     - switch from Test::Exception to Test::Fatal
+    - document that current_page must be a valid page number (RT#53475)
 
 2.03      2019-05-10 03:06:05Z
     - updated distribution tooling
