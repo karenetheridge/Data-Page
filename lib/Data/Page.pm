@@ -1,4 +1,5 @@
 package Data::Page;
+# ABSTRACT: Help when paging through sets of results
 use Carp;
 use strict;
 use base 'Class::Accessor::Chained::Fast';
@@ -148,10 +149,6 @@ sub change_entries_per_page {
 1;
 
 __END__
-
-=head1 NAME
-
-Data::Page - Help when paging through sets of results
 
 =head1 SYNOPSIS
 
@@ -317,17 +314,4 @@ L<Data::Page::Tied>, L<Data::SpreadPagination>.
 Based on code originally by Leo Lapworth, with many changes added by
 by Leon Brocard <acme@astray.com>.
 
-=head1 CONTRIBUTORS
-
-James Laver (ELPENGUIN)
-
-=head1 COPYRIGHT
-
-Copyright (C) 2000-9, Leon Brocard
-
-=head1 LICENSE
-
-This module is free software; you can redistribute it or modify it
-under the same terms as Perl itself.
-
-
+=cut
