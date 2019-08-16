@@ -37,7 +37,7 @@ my @integers = (0 .. 100);
 my $integers = join ',', @integers;
 is($integers, '');
 
-$page->current_page(undef);
+eval { $page->current_page(undef) };
 is($page->current_page, 1);
 
 $page->current_page(-5);
