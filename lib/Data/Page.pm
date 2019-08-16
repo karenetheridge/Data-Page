@@ -277,8 +277,8 @@ on the current page:
 
 =head2 skipped
 
-This method is useful paging through data in a database using SQL
-LIMIT clauses. It is simply $page->first - 1:
+This method is useful for paging through data in a database using SQL
+LIMIT clauses. It is simply C<< $page->first - 1 >>:
 
   $sth = $dbh->prepare(
     q{SELECT * FROM table ORDER BY rec_date LIMIT ?, ?}
@@ -288,7 +288,7 @@ LIMIT clauses. It is simply $page->first - 1:
 =head2 change_entries_per_page
 
 This method changes the number of entries per page and the current page number
-such that the L<first> item on the current page will be present on the new page.
+such that the L</first> item on the current page will be present on the new page.
 
  $page->total_entries(50);
  $page->entries_per_page(20);
