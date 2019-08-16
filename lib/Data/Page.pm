@@ -60,7 +60,7 @@ sub total_entries {
 sub entries_on_this_page {
     my $self = shift;
 
-    if ( $self->total_entries == 0 ) {
+    if ( $self->_total_entries_accessor == 0 ) {
         return 0;
     } else {
         return $self->last - $self->first + 1;
@@ -76,7 +76,7 @@ sub first_page {
 sub last_page {
     my $self = shift;
 
-    my $pages = $self->total_entries / $self->entries_per_page;
+    my $pages = $self->_total_entries_accessor / $self->_entries_per_page_accessor;
     my $last_page;
 
     if ( $pages == int $pages ) {
@@ -92,28 +92,28 @@ sub last_page {
 sub first {
     my $self = shift;
 
-    if ( $self->total_entries == 0 ) {
+    if ( $self->_total_entries_accessor == 0 ) {
         return 0;
     } else {
-        return ( ( $self->current_page - 1 ) * $self->entries_per_page ) + 1;
+        return ( ( $self->_current_page_accessor - 1 ) * $self->_entries_per_page_accessor ) + 1;
     }
 }
 
 sub last {
     my $self = shift;
 
-    if ( $self->current_page == $self->last_page ) {
-        return $self->total_entries;
+    if ( $self->_current_page_accessor == $self->last_page ) {
+        return $self->_total_entries_accessor;
     } else {
-        return ( $self->current_page * $self->entries_per_page );
+        return ( $self->_current_page_accessor * $self->_entries_per_page_accessor );
     }
 }
 
 sub previous_page {
     my $self = shift;
 
-    if ( $self->current_page > 1 ) {
-        return $self->current_page - 1;
+    if ( $self->_current_page_accessor > 1 ) {
+        return $self->_current_page_accessor - 1;
     } else {
         return undef;
     }
@@ -122,7 +122,7 @@ sub previous_page {
 sub next_page {
     my $self = shift;
 
-    $self->current_page < $self->last_page ? $self->current_page + 1 : undef;
+    $self->_current_page_accessor < $self->last_page ? $self->_current_page_accessor + 1 : undef;
 }
 
 # This method would probably be better named 'select' or 'slice' or
