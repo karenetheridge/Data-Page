@@ -33,12 +33,12 @@ sub current_page {
     if (@_) {
         return $self->_current_page_accessor(@_);
     }
-    return $self->first_page unless defined $self->_current_page_accessor;
-    return $self->first_page
-        if $self->_current_page_accessor < $self->first_page;
-    return $self->last_page
-        if $self->_current_page_accessor > $self->last_page;
-    return $self->_current_page_accessor();
+    my $cp = $self->_current_page_accessor;
+    my $fp = $self->first_page;
+    return $fp if !defined $cp or $cp < $fp;
+    my $lp = $self->last_page;
+    return $lp if $cp > $lp;
+    return $cp;
 }
 
 sub total_entries {
