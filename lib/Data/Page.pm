@@ -23,10 +23,7 @@ sub new {
 sub entries_per_page {
     my $self             = shift;
     if (@_) {
-        my $ep = $_[0];
-        Carp::croak('entries_per_page must be an integer')
-            if !defined($ep) or ref($ep) or int($ep) != $ep;
-        Carp::croak("Fewer than one entry per page!") if $ep < 1;
+        Carp::croak("Fewer than one entry per page!") if $_[0] < 1;
         return $self->_entries_per_page_accessor(@_);
     }
     return $self->_entries_per_page_accessor();
@@ -36,8 +33,6 @@ sub current_page {
     my $self = shift;
     if (@_) {
         my $cp = $_[0];
-        Carp::croak('current_page must be an integer')
-            if !defined($cp) or ref($cp) or int($cp) != $cp;
         my $fp = $self->first_page;
         return $self->_current_page_accessor($fp) if $cp < $fp;
         my $lp = $self->last_page;
@@ -50,8 +45,6 @@ sub current_page {
 sub total_entries {
     my $self = shift;
     if (@_) {
-        Carp::croak('total_entries must be an integer')
-            if !defined($_[0]) or ref($_[0]) or int($_[0]) != $_[0];
         return $self->_total_entries_accessor(@_);
     }
     return $self->_total_entries_accessor;

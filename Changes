@@ -1,6 +1,7 @@
 Revision history for Perl module Data::Page:
 
 {{$NEXT}}
+    - revert integer checks (RT#130686)
 
 2.04      2019-08-16 21:46:39Z (TRIAL RELEASE)
     - switch from Test::Exception to Test::Fatal
