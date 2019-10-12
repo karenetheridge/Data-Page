@@ -1,5 +1,7 @@
 Revision history for Perl module Data::Page:
 
+{{$NEXT}}
+
 2.05      2019-10-12 05:17:47Z (TRIAL RELEASE)
     - revert integer checks (RT#130686)
 

@@ -6,7 +6,7 @@ use warnings;
 use base 'Class::Accessor::Chained::Fast';
 __PACKAGE__->mk_accessors(qw(total_entries entries_per_page current_page));
 
-our $VERSION = '2.05';
+our $VERSION = '2.06';
 
 sub new {
     my $class = shift;
